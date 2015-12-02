@@ -1,5 +1,6 @@
 # OPUS-Upload-
-A script written in Ruby, Selenium, and bash. Used for the automatic uploading and downloading of GPS Data to OPUS.
+A script written in Ruby, Selenium, and bash. Used for the automatic uploading and downloading of GPS Data to OPUS. Can be used to graph in near real time.
+```
   ____  _____  _    _  _____   _____            _ _   _                
  / __ \|  __ \| |  | |/ ____| |  __ \          | | | (_)               
 | |  | | |__) | |  | | (___   | |__) |___  __ _| | |_ _ _ __ ___   ___ 
@@ -16,23 +17,30 @@ A script written in Ruby, Selenium, and bash. Used for the automatic uploading a
  \_____|_|  \__,_| .__/|_| |_|\___|_|   
                  | |                    
                  |_|                    
+```
 -----------------------------------------------------------------------
-Copyright 2011 Francisco Hernandez <FJHernandez89@gmail.com>
+Copyright (c) 2011 Francisco Hernandez
 
-This program is free software; you can redistribute it and/or modify
-it under the terms of the GNU Lesser General Public License as 
-published by the Free Software Foundation; either version 3 of the 
-License, or (at your option) any later version.
+The MIT License (MIT)
 
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU Lesser General Public License for more details.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-You should have received a copy of the GNU Lesser General Public 
-License along with this program; if not, write to the Free Software
-Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
-MA 02110-1301, USA, or see <http://www.gnu.org/licenses/>.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
 -----------------------------------------------------------------------
 
 1. Introduccion
@@ -65,48 +73,51 @@ Values file (CSV file) and ploted using GMT. RINEX files will be moved
 to the ./updata/old folder after proccessing.
 
 4. Helper scripts for manual use
-  In case you do not want realtime OPUS scripts included in the 
+  
+In case you do not want realtime OPUS scripts included in the 
 ./scripts can be used to do the processing manually. Their use
 is outlined below:
 
-	*UploadtoOPUS_RT.sh- Used to Upload to OPUS in ALL RINEX files 
+
+
+  * UploadtoOPUS_RT.sh- Used to Upload to OPUS in ALL RINEX files 
 in the ./updata folder in realtime. Moves proccesed data to the "old" 
 folder as well as downloads the emails. Due to waiting for emails this 
 script is slow and should not be used for processing a lot of existing 
 data use UploadtoOPUS instead.
 
-	USAGE: UploadtoOPUS_RT.sh EMAIL ANT_Height (Implies server
+    * USAGE: UploadtoOPUS_RT.sh EMAIL ANT_Height (Implies server
 port user and password have been set as variables from main script)
 
-	*UploadtoOPUS.sh- Usage same as UploadtoOPUS_RT however does 
+  * UploadtoOPUS.sh- Usage same as UploadtoOPUS_RT however does 
 not wait for email to download. Recomends downloading email data 
 manually and then processed with automatic script.
 
-	USAGE: UploadtoOPUS_RT.sh EMAIL ANT_Height
+    * USAGE: UploadtoOPUS_RT.sh EMAIL ANT_Height
 
-	*UploadToOPUS.rb- Actual uploading script. Can only upload one
+  * UploadToOPUS.rb- Actual uploading script. Can only upload one
 RINEX file per use.
 
-	USAGE UploadToOPUS.rb EMAIL FILENAME ANT_Height
+    * USAGE UploadToOPUS.rb EMAIL FILENAME ANT_Height
 
-	*DownloadFromOPUS.rb- Used to wait and download e-mail from 
+  * DownloadFromOPUS.rb- Used to wait and download e-mail from 
 OPUS and can be used once per email.
 
-	USAGE: DownloadFromOPUS.rb SERVER USER PASS PORT
+    * USAGE: DownloadFromOPUS.rb SERVER USER PASS PORT
 
-	*FixEmail.sh- Used to fix and Sort email downloaded 
+  * FixEmail.sh- Used to fix and Sort email downloaded 
 automatically from OPUS via RUBY script.
 
-	USAGE: FixEmail.sh Email_Filename
+    * USAGE: FixEmail.sh Email_Filename
 	
-	*Extract_Data.sh- Used to "most" of the data from the emails
+  * Extract_Data.sh- Used to "most" of the data from the emails
 that were recived. This is raw data and will be extracted in a columnar
 format. This data will also be sorted by day. If you require headers 
 you need to uncomment a line within the script.
 
-	USAGE: Extract_Data Email_Filename
-
-	*XYZ_To_GMT.sh- This script is used to create a normailzed xyz
+    * USAGE: Extract_Data Email_Filename
+	
+  * XYZ_To_GMT.sh- This script is used to create a normailzed xyz
 file from the extracted data. The data will be normalized in order to 
 see movement of the GPS station. It will be relative always to the 
 first day of the input file. This script takes a Dividend for dividing
