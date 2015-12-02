@@ -23,10 +23,10 @@
 #------------------------Please configure this------------------------------
 
 
-email='data.opus@gmail.com'	# E-mail where data will be sent
+email='DATA_EMAIL@PROVIDER'	# E-mail where data will be sent
 height=0.0			# Height of the antena
-user='data.opus@gmail.com'	# Username in e-mail server
-pass='opus4gps'			# Password of e-mail server
+user='DATA_EMAIL@PROVIDER'	# Username in e-mail server
+pass='DATA_PASSWORD'		# Password of e-mail server
 port=993			# Port of e-mail server
 server='imap.gmail.com'		# Server Imap Address
 Dividend=0.001			# Dividen by which you want the resolution
