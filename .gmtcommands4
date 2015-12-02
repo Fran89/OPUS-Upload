@@ -1,0 +1,9 @@
+# GMT common arguments shelf
+-B:# of Day:a5f5g1/:Vetical-Disp (cm):a5f5g1
+-Jx.5
+-R0/7/-3/14
+-jx.5
+EOF
+
+EOF
+OF
