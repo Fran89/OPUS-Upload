@@ -41,7 +41,7 @@ def idle(&response_handler)
         ensure
           remove_response_handler(response_handler)
           put_string("DONE#{CRLF}")
-          response = get_tagged_response(tag)
+          response = get_tagged_response(tag, true)
         end
       end
 
@@ -62,15 +62,15 @@ end
 class FetchOpus
 	
 	def set_server(*args)
-		@server = *args.to_s
+		@server = *args
 	end
 
 	def set_user(*args)
-		@user = *args.to_s
+		@user = *args
 	end
 	
 	def set_pass(*args)
-		@pass = *args.to_s
+		@pass = *args
 	end
 
 	def set_port(*args)
@@ -78,8 +78,8 @@ class FetchOpus
 	end
 
 	def mail_main
-		@opus_inbox = Net::IMAP.new(@server, @port, true)
-		@opus_inbox.login(@user,@pass)
+		@opus_inbox = Net::IMAP.new(@server.shift.strip, @port.shift.strip, true)
+		@opus_inbox.login(@user.shift.strip,@pass.shift.strip)
 		@opus_inbox.select('INBOX')
 		
 		@opus_inbox.idle { |resp|

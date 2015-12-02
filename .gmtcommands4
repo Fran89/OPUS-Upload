@@ -1,7 +1,7 @@
 # GMT common arguments shelf
 -B:# of Day:a5f5g1/:Vetical-Disp (cm):a5f5g1
 -Jx.5
--R0/7/-3/14
+-R-1/1/-1/1
 -jx.5
 EOF
 

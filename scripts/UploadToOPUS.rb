@@ -43,15 +43,15 @@ class OPUS
   end
   
   def setmail(*args)
-  @mail = *args.to_s
+  @mail = *args
   end
   
   def setfile(*args)
-  @file = *args.to_s
+  @file = *args
   end
   
   def setheight(*args)
-  @height = *args.to_s
+  @height = *args
   end
   
   def teardown
@@ -62,9 +62,9 @@ class OPUS
   def main_opus
     @selenium.open "/OPUS/"
     
-    @selenium.type("email_address", @mail)
-    @selenium.type("height", @height)
-    @selenium.type("uploadfile", @file)
+    @selenium.type "name=email_address", @mail.shift.strip
+    @selenium.type "name=height", @height.shift.strip
+    @selenium.type "name=uploadfile",  @file.shift.strip
     
     #Trimble Choke Ring
     #@selenium.select "ant_type", "label=regexp:TRM49700\\.00\\s+NONE\\sTrimble\\sChoke\\sRing\\sP/N:49700-00\\s+"
